@@ -1,14 +1,15 @@
 #!/bin/csh
 
-foreach i($1 $2 $3 $4 $5) 
+foreach i($1 $2 $3 $4 $5)
+        echo $i 
 	echo -n "Entered file Name: "
 	set name = $i
 	echo $name
 	set var1 = `ls -l $name | grep -o ^.`
-
+        set var2 = `echo $var1 | grep -o ^.` 
 	if(-e $name) then
 		  echo "$name exists"
-		  switch($var1)
+		  switch($var2)
 		         case -:
 		              echo "$name is a regular file"
 		              breaksw
